@@ -11,6 +11,12 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TablePagination from '@mui/material/TablePagination'
 
+function createData(name, code, population, size) {
+  const density = population / size
+
+  return { name, code, population, size, density }
+}
+
 const columns = [
   { id: 'name', label: 'Name', minWidth: 170 },
   { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
@@ -36,11 +42,6 @@ const columns = [
     format: value => value.toFixed(2)
   }
 ]
-function createData(name, code, population, size) {
-  const density = population / size
-
-  return { name, code, population, size, density }
-}
 
 const rows = [
   createData('India', 'IN', 1324171354, 3287263),
@@ -59,6 +60,7 @@ const rows = [
   createData('Nigeria', 'NG', 200962417, 923768),
   createData('Brazil', 'BR', 210147125, 8515767)
 ]
+
 
 const TableStickyHeader = () => {
   // ** States
